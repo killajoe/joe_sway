@@ -5,7 +5,8 @@
     local -r username="$1"
     git clone https://github.com/killajoe/joe_sway.git
     cd joe_sway
+    mkdir /home/$username/.config
     cp -a fastfetch i3status mako rofi sway /home/$username/.config/
-    chmod -R $username:$username /home/$username/.config
+    chown -R $username:$username /home/$username/.config
     chmod +x /home/$username/.config/sway/scripts/*
     systemctl enable ly
