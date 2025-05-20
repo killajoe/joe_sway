@@ -238,11 +238,3 @@ bindsym F10 exec  --no-startup-id rofi -show window \
                 -config ~/.config/rofi/rofidmenu.rasi
 
 bindsym F1 exec  --no-startup-id ~/.config/sway/scripts/keyhint-2
-
-
-#############
-# wallpaper #
-#############
-
-exec_always swaybg -o DP-1 -i ~/Bilder/wallpapers/photo_2024-01-28_21-16-48.jpg -m fill
-exec_always swaybg -o DP-3 -i ~/Bilder/wallpapers/photo_2024-01-28_21-16-48-left.jpg -m fill
