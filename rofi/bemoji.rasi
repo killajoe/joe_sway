@@ -1,0 +1,18 @@
+/*******************************************************
+ * ROFI configs i3 Apps menu for EndeavourOS
+ * Maintainer: joekamprad <joekamprad@endeavouros.com>
+ *******************************************************/
+configuration {
+    font:                           "JetBrains Mono 10";
+    show-icons:                     true;
+	icon-theme: 					"Arc-X-D";
+    scroll-method:                  0;
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
+
+@import "~/.config/rofi/config.rasi"
+/* Insert theme modifications after this */

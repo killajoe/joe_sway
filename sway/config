@@ -1,0 +1,317 @@
+# user config directory
+include $HOME/.config/sway/config.d/*
+
+# setting mod variable to windows key
+
+set $mod Mod4
+
+
+# https://i3wm.org/docs/userguide.html#_focus_wrapping
+focus_wrapping yes
+
+# default workspace layout
+#workspace_layout tabbed
+workspace_layout default
+#workspace_layout stacking
+# gaps:
+# Set inner/outer gaps
+gaps inner 3
+gaps outer 0
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+set $smart_borders off
+
+default_border pixel 1
+default_floating_border pixel 2
+
+#
+
+#for_window [app_id=".*"] title_window_icon on
+
+# qt-app fix for title bar:
+for_window [app_id="^.*"] border pixel 1
+
+# Hides vertical and horizontal borders when there's only one window.
+hide_edge_borders both
+
+#popup_during_fullscreen leave_fullscreen
+#show_marks yes
+
+# small window for videos
+bindsym $mod+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 25
+
+# Assume you are on workspace "1: www" and switch to "2: IM" using mod+2
+# because somebody sent you a message. You don’t need to remember
+# where you came from now, you can just press $mod+2 again to switch back to "1: www".
+set $workspace_auto_back_and_forth yes
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:Sourcecode Pro Regular 9
+font pango:Ubuntu 10
+# turn on mouse following
+focus_follows_mouse no
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+#####################
+# keybindings part: #
+#####################
+# bemoji
+bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/bemoji -t
+
+# dunst (notification) bindings
+bindsym F5 exec --no-startup-id dunstctl history-pop
+
+# configure multiple keyboard layouts and hotkey to switch (Alt+CAPSLOCK in this example)
+
+#exec --no-startup-id setxkbmap -layout de,us -option grp:win_space_toggle
+#exec --no-startup-id setxkbmap -layout de,us -option 'grp:alt_c_toggle'
+
+# start a terminal
+bindsym $mod+Return exec  --no-startup-id kitty
+
+# open Filemanager
+#bindsym $mod+t exec  --no-startup-id thunar
+
+# open browser
+bindsym $mod+w exec  --no-startup-id firefox-nightly
+
+## action starters:
+
+# Toggle border
+bindsym $mod+x border toggle
+
+# kill focused window
+bindsym F4 kill
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#move floating window
+#floating_modifier Mod3
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout
+bindsym $mod+e layout toggle all
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+d focus child
+
+#extra keys:
+bindsym XF86Calculator exec  --no-startup-id galculator
+
+#exit-menu
+bindsym $mod+Shift+e exec  --no-startup-id ~/.config/i3/scripts/powermenu
+
+# restart sway inplace (preserves your layout/session, can be used to upgrade sway)
+bindsym $mod+Shift+r reload
+
+
+# of the focused window
+bindsym $mod+Print exec  --no-startup-id ~/.local/bin/screenshot-select
+
+bindsym --release Print exec --no-startup-id ~/.local/bin/screenshot
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym Left   resize shrink width  5 px or 5 ppt
+    bindsym Down   resize shrink height 5 px or 5 ppt
+    bindsym Up     resize grow height   5 px or 5 ppt
+    bindsym Right  resize grow width    5 px or 5 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+mode "mouse" {
+    # set your three speeds here
+
+    set $slow 1
+    set $quick 10
+    set $fast 50
+
+}
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+z move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+z scratchpad show
+
+
+# toggle window layouts
+bindsym $mod+n layout stacking
+bindsym $mod+m layout tabbed
+bindsym $mod+b layout default
+
+## audio keys:
+# volume
+
+# Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
+bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
+
+
+# Media player controls
+bindsym XF86AudioPlay exec  --no-startup-id playerctl play-pause
+#bindsym XF86AudioPause exec  --no-startup-id playerctl pause
+bindsym XF86AudioNext exec  --no-startup-id playerctl next
+bindsym XF86AudioPrev exec  --no-startup-id playerctl previous
+
+
+# open new empty workspace
+bindsym $mod+Shift+n exec  --no-startup-id ~/.config/i3/scripts/new-workspace.sh
+
+
+##################################
+# bar settings and configuration #
+##################################
+
+## Start i3bar to display a workspace bar (plus the system information i3status
+
+######################################
+# color settings for bar and windows #
+######################################
+
+# Define colors variables:
+set $darkbluetrans	#08052be6
+set $darkblue		#08052b
+set $lightblue		#6ba4e7
+set $urgentred		#ff1a47
+set $white		    #ffffff
+set $black		    #000000
+set $purple		    #3f2b68
+set $darkgrey		#383c4a
+set $grey		    #b0b5bd
+set $mediumgrey		#8b8b8b
+set $yellowbrown	#e1b700
+set $darkpurple     #110a21
+
+# define colors for windows:
+#class      border  bground   text    indicator   child_border
+client.focused          $purple         $purple     $purple  $purple        $purple
+client.unfocused        $darkbluetrans  $darkgrey   $grey    $darkgrey      $darkbluetrans
+client.focused_inactive $darkblue       $darkblue   $grey    $black         $black
+client.urgent           $urgentred      $urgentred  $white   $yellowbrown   $yellowbrown
+
+########
+# bars #
+########
+
+bar {
+    output DP-3
+    font pango:Ubuntu 10
+    position bottom
+    tray_output primary
+    tray_padding 3
+    status_command i3blocks -c ~/.config/sway/i3blocks.conf
+
+    colors {
+        separator          #3f2b68
+        background         #08052be6
+        statusline         #ffffff
+
+        focused_workspace  #ffffff  #bdaedb  #08052b
+        active_workspace   #6ba4e7  #6ba4e7  #08052b
+        inactive_workspace #08052b #08052b #ffffff
+        urgent_workspace   #ffef06  #ff7f7f  #000000
+    }
+}
+
+bar {
+    output DP-1
+    font pango:Ubuntu 10
+    position bottom
+    tray_output primary
+    tray_padding 3
+    status_command i3blocks -c ~/.config/sway/i3blocks-VGA.conf
+
+    colors {
+        separator          #3f2b68
+        background         #08052be6
+        statusline         #ffffff
+
+        focused_workspace  #ffffff  #bdaedb  #08052b
+        active_workspace   #6ba4e7  #6ba4e7  #08052b
+        inactive_workspace #08052b #08052b #ffffff
+        urgent_workspace   #ffef06  #ff7f7f  #000000
+    }
+}
+
+bar {
+    output DP-1
+    font pango:Ubuntu 10
+    position top
+    tray_output primary
+    tray_padding 3
+    status_command i3blocks -c ~/.config/sway/i3blocks-VGA-top.conf
+    workspace_buttons no
+
+    colors {
+        separator          #3f2b68
+        background         #08052be6
+        statusline         #ffffff
+
+        focused_workspace  #ffffff  #bdaedb  #08052b
+        active_workspace   #6ba4e7  #6ba4e7  #08052b
+        inactive_workspace #08052b #08052b #ffffff
+        urgent_workspace   #ffef06  #ff7f7f  #000000
+    }
+
+}
+bindsym F3 bar mode toggle
+
+#########################
+# rofi application menu #
+#########################
+
+bindsym F9 exec  --no-startup-id rofi -modi drun -show drun \
+                -config ~/.config/rofi/rofidmenu.rasi 
+
+bindsym F10 exec  --no-startup-id rofi -show window \
+                -config ~/.config/rofi/rofidmenu.rasi
+
+bindsym F1 exec  --no-startup-id ~/.config/sway/scripts/keyhint-2
+
+
+#############
+# wallpaper #
+#############
+
+exec_always swaybg -o DP-1 -i ~/Bilder/wallpapers/photo_2024-01-28_21-16-48.jpg -m fill
+exec_always swaybg -o DP-3 -i ~/Bilder/wallpapers/photo_2024-01-28_21-16-48-left.jpg -m fill

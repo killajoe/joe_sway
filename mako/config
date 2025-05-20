@@ -1,0 +1,25 @@
+font=UbuntuMono 9
+
+background-color=#08052b
+text-color=#ffffff
+width=315
+height=200
+padding=10
+margin=40
+
+progress-color=over #ff7f7f
+icon-path=/usr/share/icons/Yaru-purple-dark/
+max-icon-size=70
+layer=overlay
+output=DP-3
+
+border-size=1
+border-radius=7
+border-color=#7f7fff
+
+default-timeout=5000
+
+[urgency=high]
+
+ignore-timeout=1
+

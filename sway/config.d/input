@@ -1,0 +1,12 @@
+### Input configuration
+#
+# Read `man 5 sway-input` for more information about this section.
+
+# Enable numlock by default
+input type:keyboard xkb_numlock enabled
+
+# Set keyboard layout and variant based on current system settings
+exec_always {
+    'swaymsg input type:keyboard xkb_layout "$(localectl status | grep "X11 Layout" | sed -e "s/^.*X11 Layout://")"'
+}
+

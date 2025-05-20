@@ -1,0 +1,51 @@
+# Import environment variables for user systemd service manager
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Update dbus environments with display variables
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Desktop notifications
+exec mako
+
+# Autotiling
+exec autotiling
+
+# cliphist
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+
+
+# Firewall Applet
+exec sleep 2 && firewall-applet
+
+
+##apps
+exec --no-startup-id sleep 5 && telegram-desktop
+
+exec --no-startup-id thunar
+exec --no-startup-id sleep 3 && firefox-nightly
+
+exec --no-startup-id sleep 6 && thunderbird
+#exec --no-startup-id deluge-gtk
+
+
+# scrcpy autoadb show phone screen mirror
+exec --no-startup-id autoadb scrcpy -s '{}'
+for_window [class="scrcpy" instance="scrcpy"] floating enable
+assign [class="scrcpy"] $ws9
+
+## keyhelper:
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+
+##tools
+exec --no-startup-id sh ~/.config/sway/scripts/packagelist.sh
+
+# dex execute .desktop files
+exec --no-startup-id dex --autostart --environment sway
+
+exec --no-startup-id sleep 6 && solaar --window=hide
+
+exec ~/.config/sway/scripts/monitorstarter.sh

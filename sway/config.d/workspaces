@@ -1,0 +1,68 @@
+#workspace-edit
+set $ws1   
+set $ws2   
+set $ws3   brsr
+set $ws4   mail
+set $ws5   office
+set $ws6   vm
+set $ws7  art
+set $ws8  
+set $ws9  android 
+set $ws10  torrent 
+
+# use workspaces on different monitors
+workspace   output DP-1
+workspace   output DP-1
+workspace   brsr output DP-3
+workspace   mail output DP-3
+workspace   office output DP-3
+workspace   vm output DP-3
+workspace  art output DP-3
+workspace  output DP-1
+workspace  android output DP-1
+workspace  output DP-1
+
+#bind program to workspace
+assign [app_id="thunar"] $ws1
+assign [app_id="xed"] $ws1
+assign [app_id="org.telegram.desktop"] $ws2
+assign [app_id="(?i)firefox-nightly"] $ws3
+assign [app_id="Navigator"] $ws3
+assign [app_id="thunderbird"] $ws4
+assign [app_id="thunderbird-beta"] $ws4
+assign [app_id="libreoffice-writer"] $ws5
+assign [app_id="(?i)libreoffice"] $ws5
+assign [app_id="(?i)libreoffice.*"] $ws5
+assign [app_id="libreoffice"] $ws5
+assign [app_id="virt-manager"] $ws6
+assign [app_id="VirtualBox"] $ws6
+assign [app_id="VirtualBox Machine"] $ws6
+assign [app_id="vmware"] $ws6
+assign [app_id="gimp"] $ws7
+assign [app_id="inkscape"] $ws7
+assign [app_id="tm"] $ws5
+assign [app_id="VSCodium"] $ws5
+assign [app_id="deluge-gtk"] $ws10
+assign [app_id="deluge"] $ws10
+
+# switch to workspace
+bindsym $mod+1    workspace  $ws1
+bindsym $mod+2    workspace  $ws2
+bindsym $mod+3    workspace  $ws3
+bindsym $mod+4    workspace  $ws4
+bindsym $mod+5    workspace  $ws5
+
+# switch workspace with numpad
+bindcode $mod+87 workspace $ws1
+bindcode $mod+88 workspace $ws2
+bindcode $mod+89 workspace $ws3
+bindcode $mod+83 workspace $ws4
+bindcode $mod+84 workspace $ws5
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1    move container to workspace  $ws1
+bindsym $mod+Shift+2    move container to workspace  $ws2
+bindsym $mod+Shift+3    move container to workspace  $ws3
+bindsym $mod+Shift+4    move container to workspace  $ws4
+bindsym $mod+Shift+5    move container to workspace  $ws5
