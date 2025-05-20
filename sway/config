@@ -13,6 +13,7 @@ focus_wrapping yes
 #workspace_layout tabbed
 workspace_layout default
 #workspace_layout stacking
+
 # gaps:
 # Set inner/outer gaps
 gaps inner 3
@@ -24,18 +25,11 @@ set $smart_borders off
 default_border pixel 1
 default_floating_border pixel 2
 
-#
-
-#for_window [app_id=".*"] title_window_icon on
-
 # qt-app fix for title bar:
 for_window [app_id="^.*"] border pixel 1
 
 # Hides vertical and horizontal borders when there's only one window.
 hide_edge_borders both
-
-#popup_during_fullscreen leave_fullscreen
-#show_marks yes
 
 # small window for videos
 bindsym $mod+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 25
@@ -51,6 +45,7 @@ set $workspace_auto_back_and_forth yes
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:Sourcecode Pro Regular 9
 font pango:Ubuntu 10
+
 # turn on mouse following
 focus_follows_mouse no
 
@@ -61,10 +56,10 @@ floating_modifier $mod
 # keybindings part: #
 #####################
 # bemoji
-bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/bemoji -t
+bindsym $mod+o exec --no-startup-id ~/.config/sway/scripts/bemoji -t
 
-# dunst (notification) bindings
-bindsym F5 exec --no-startup-id dunstctl history-pop
+# mako (notification) history
+bindsym F5 exec --no-startup-id ~/.config/sway/scripts/mako-hist
 
 # configure multiple keyboard layouts and hotkey to switch (Alt+CAPSLOCK in this example)
 

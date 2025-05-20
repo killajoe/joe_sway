@@ -1,0 +1,23 @@
+#!/bin/bash
+
+makoctl history | awk '
+BEGIN {
+    RS = ""
+    FS = "\n"
+}
+{
+    for (i = 1; i <= NF; i++) {
+        if ($i ~ /^Notification [0-9]+:/) {
+            n = $i
+        } else if ($i ~ /^  App name:/) {
+            a = $i
+        }
+    }
+    sub(/^Notification [0-9]+: /, "", n)
+    sub(/^  App name: /, "", a)
+    print a ": " n
+}
+' | rofi -dmenu -theme ~/.config/rofi/mako-hist.rasi -p "Notification history ⏰"
+
+
+
