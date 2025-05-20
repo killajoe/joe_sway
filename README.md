@@ -10,7 +10,7 @@ Advanced setup for dual display and multiple workspaces with non-dynamic default
 * Notification = mako
 * Ailerons TTF font needed (EndeavourOS Branding Font)
  
-# change this:
+**change this:**
 
 1. https://github.com/killajoe/joe_sway/blob/main/fastfetch/config.jsonc
 ```
@@ -25,5 +25,14 @@ Use nwg-displays to create it and copy it from `~/.config/sway` to `~/.config/sw
 This is needed also in these configs:
  * https://github.com/killajoe/joe_sway/blob/main/sway/config.d/panels
  * https://github.com/killajoe/joe_sway/blob/main/sway/config.d/wallpaper
+
+Now to use the configs:
+```
+git clone https://github.com/killajoe/joe_sway.git
+cd joe_sway 
+cp -a fastfetch i3status mako rofi sway ~/.config/
+chmod +x ~/.config/sway/scripts/*
+```
+
 
 
