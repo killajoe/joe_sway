@@ -118,8 +118,8 @@ menu=(
   [ Shutdown]="systemctl poweroff"
   [ Reboot]="systemctl reboot"
   [ Suspend]="systemctl suspend"
-  [ Lock]="~/.config/i3/scripts/blur-lock.sh"
-  [ Logout]="i3-msg exit"
+  [ Lock]="~/.config/sway/scripts/blur-lock.sh"
+  [ Logout]="swaymsg exit"
   [ Hibernate]="systemctl hibernate"
   [ Cancel]=""
 )

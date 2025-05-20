@@ -1,0 +1,41 @@
+#!/bin/bash
+
+FONT="Ailerons"
+TEXT="EndeavourOS is the Best OS ever!"
+BLUR="0x6"
+LEFT_W=1920
+LEFT_H=1080
+RIGHT_W=1920
+RIGHT_H=1080
+
+grim -o DP-1 /tmp/screen_left.png
+grim -o DP-3 /tmp/screen_right.png
+
+magick /tmp/screen_left.png -resize ${LEFT_W}x${LEFT_H}\! -blur $BLUR \
+  -font "$FONT" -pointsize 64 -fill "#000000" -gravity center -annotate +2+2 "$TEXT" \
+  -fill "#7f3fbf" -gravity center -annotate +0+0 "$TEXT" /tmp/lock_left.png
+
+magick /tmp/screen_right.png -resize ${RIGHT_W}x${RIGHT_H}\! -blur $BLUR /tmp/lock_right.png
+
+
+swaylock -i DP-1:/tmp/lock_left.png \
+-i DP-3:/tmp/lock_right.png \
+--indicator-radius 100 \
+--indicator-thickness 6 \
+--ring-color 7f3fbf00 \
+--ring-clear-color 2c2c2cbb \
+--ring-ver-color 7f3fbfbb \
+--ring-wrong-color ff7f7fbb \
+--inside-color 08052bff \
+--inside-clear-color 08052bff \
+--inside-ver-color 7f3fbfff \
+--inside-wrong-color ff7f7fff \
+--line-color 7f3fbfff \
+--line-clear-color 2c2c2cbb \
+--line-ver-color 7f3fbfff \
+--line-wrong-color ff7f7fff \
+--separator-color 2c2c2cbb \
+--text-color 7f7fff \
+--font Ailerons \
+--font-size 30
+

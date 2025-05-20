@@ -55,8 +55,9 @@ floating_modifier $mod
 #####################
 # keybindings part: #
 #####################
-# bemoji
-bindsym $mod+o exec --no-startup-id ~/.config/sway/scripts/bemoji -t
+
+# screen lock (swaylock)
+bindsym $mod+l exec ~/.config/sway/scripts/swaylock_config
 
 # mako (notification) history
 bindsym F5 exec --no-startup-id ~/.config/sway/scripts/mako-hist
