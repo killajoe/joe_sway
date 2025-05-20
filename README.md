@@ -22,6 +22,8 @@ to fit your name. (JӨΣKΛMPЯΛD 🪪 [Der Doktor])
 Use nwg-displays to create it and copy it from ~/.config/sway` to `~/.config/sway/config.d/`
 
 3. Workspaces: https://github.com/killajoe/joe_sway/blob/main/sway/config.d/workspaces change display names to yours (mine are DP-1 [left] and DP-3 [right])
-This is needed also in these configs: 
+This is needed also in these configs:
+ * https://github.com/killajoe/joe_sway/blob/main/sway/config.d/panels
+ * https://github.com/killajoe/joe_sway/blob/main/sway/config.d/wallpaper
 
 
