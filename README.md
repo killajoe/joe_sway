@@ -1,7 +1,7 @@
 # joe_sway
 Nu Sway
 
-![joeswqay_banner](https://github.com/user-attachments/assets/b5d38592-9543-40b0-be5f-1af04cf1c903)
+![joeswqay_banner](https://raw.githubusercontent.com/killajoe/joe_sway/refs/heads/main/joesway_banner.png)
 
 ![screenshot_2025-05-20_04-16-45](https://github.com/user-attachments/assets/715ae71d-f98d-4fe0-b24b-3aefa1908bd4)
 
