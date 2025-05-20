@@ -1,7 +1,6 @@
 #!/bin/bash
-#
-# This file can contain commands that will be executed (as root) at the end of
-# EndeavourOS install (in online mode only) on the target system.
+# use this raw url and add it in welcome plus adding packages.list in use_pkglist.txt in liveiser home path.
+
 
     local -r username="$1"              # new user you created for the target
     git clone https://github.com/killajoe/joe_sway.git
