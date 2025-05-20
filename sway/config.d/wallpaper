@@ -1,0 +1,6 @@
+#############
+# wallpaper #
+#############
+
+exec_always swaybg -o DP-1 -i ~/.config/sway/wall_left.png -m fill
+exec_always swaybg -o DP-3 -i ~/.config/sway/wall_right.png -m fill
