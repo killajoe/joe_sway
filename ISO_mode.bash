@@ -1,5 +1,5 @@
 #!/bin/bash
-# use this raw url and add it in welcome plus adding packages.list in use_pkglist.txt in liveiser home path.
+# use this raw url and add it in welcome plus adding packages.list in use_pkglist.txt in liveuser home path.
 # https://raw.githubusercontent.com/killajoe/joe_sway/refs/heads/main/ISO_mode.bash
 
     local -r username="$1"
