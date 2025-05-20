@@ -1,0 +1,66 @@
+########
+# Bars #
+########
+
+bar {
+    output           DP-3
+    font             pango:Ubuntu 10
+    position         bottom
+    tray_output      primary
+    tray_padding     3
+    status_command   i3blocks -c ~/.config/sway/i3blocks.conf
+
+    colors {
+        separator          #3f2b68
+        background         #08052be6
+        statusline         #ffffff
+
+        focused_workspace  #ffffff  #bdaedb  #08052b
+        active_workspace   #6ba4e7  #6ba4e7  #08052b
+        inactive_workspace #08052b  #08052b  #ffffff
+        urgent_workspace   #ffef06  #ff7f7f  #000000
+    }
+}
+
+bar {
+    output           DP-1
+    font             pango:Ubuntu 10
+    position         bottom
+    tray_output      primary
+    tray_padding     3
+    status_command   i3blocks -c ~/.config/sway/i3blocks-VGA.conf
+
+    colors {
+        separator          #3f2b68
+        background         #08052be6
+        statusline         #ffffff
+
+        focused_workspace  #ffffff  #bdaedb  #08052b
+        active_workspace   #6ba4e7  #6ba4e7  #08052b
+        inactive_workspace #08052b  #08052b  #ffffff
+        urgent_workspace   #ffef06  #ff7f7f  #000000
+    }
+}
+
+bar {
+    output           DP-1
+    font             pango:Ubuntu 10
+    position         top
+    tray_output      primary
+    tray_padding     3
+    status_command   i3blocks -c ~/.config/sway/i3blocks-VGA-top.conf
+    workspace_buttons no
+
+    colors {
+        separator          #3f2b68
+        background         #08052be6
+        statusline         #ffffff
+
+        focused_workspace  #ffffff  #bdaedb  #08052b
+        active_workspace   #6ba4e7  #6ba4e7  #08052b
+        inactive_workspace #08052b  #08052b  #ffffff
+        urgent_workspace   #ffef06  #ff7f7f  #000000
+    }
+}
+
+
