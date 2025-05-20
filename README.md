@@ -19,7 +19,7 @@ Advanced setup for dual display and multiple workspaces with non-dynamic default
 to fit your name. (JӨΣKΛMPЯΛD 🪪 [Der Doktor])
 
 2. https://github.com/killajoe/joe_sway/blob/main/sway/config.d/outputs
-Use nwg-displays to create it and copy it from ~/.config/sway` to `~/.config/sway/config.d/`
+Use nwg-displays to create it and copy it from `~/.config/sway` to `~/.config/sway/config.d/`
 
 3. Workspaces: https://github.com/killajoe/joe_sway/blob/main/sway/config.d/workspaces change display names to yours (mine are DP-1 [left] and DP-3 [right])
 This is needed also in these configs:
